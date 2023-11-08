@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metro Journey Calculator</title>
+</head>
+<body>
+    <h1>Metro Journey Calculator</h1>
+
+    <form method="POST" action="/">
+        <label for="boarding_station">Select Boarding Station:</label>
+        <select name="boarding_station" id="boarding_station">
+            <optgroup label="Purple Line" style="color: purple;">
+                {% for station in purple_line_stations %}
+                <option value="{{ station }}" style="color: purple;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Green Line" style="color: green;">
+                {% for station in green_line_stations %}
+                <option value="{{ station }}" style="color: green;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+        <label for="destination_station">Select Destination Station:</label>
+        <select name="destination_station" id="destination_station">
+            <optgroup label="Purple Line" style="color: purple;">
+                {% for station in purple_line_stations %}
+                <option value="{{ station }}" style="color: purple;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Green Line" style="color: green;">
+                {% for station in green_line_stations %}
+                <option value="{{ station }}" style="color: green;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
