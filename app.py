@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from flask22 import *
+from algo import *
 app = Flask(__name__)
 
 # Define the stations for the Purple Line
@@ -40,4 +40,4 @@ def r():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=0)
