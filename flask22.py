@@ -1,4 +1,3 @@
-
 positive_x = ['Majestic', 'Sir M. Visvesvaraya Station, Central College', 'Dr. B.R. Ambedkar Station, Vidhana Soudha', 'Cubbon Park', 'Mahatma Gandhi Road', 'Trinity', 'Halasuru', 'Indiranagar', 'Swami Vivekananda Road', 'Baiyappanahalli', 'Benniganahalli', 'K.R Pura', 'Singayyanapalya', 'Garudacharapalya', 'Hoodi', 'Seetharampalya', 'Kundalahalli', 'Nallur Halli', 'Sri Sathya Sai Hospital', 'Pattandur Agrahara', 'Kadugodi Tree Park', 'Hopefarm Channasandra', 'Whitefield(Kadugodi)']
 
 
@@ -9,6 +8,7 @@ negative_x = ['Majestic', "Krantivira Sangolli Rayanna Railway Station", "Magadi
 
 
 negative_y = ['Majestic', 'Chickpet', 'Krishna Rajendra Market', 'National College', 'Lalbagh', 'South End Circle', 'Jayanagar', 'Rashtreeya Vidyalaya Road', 'Banashankari', 'Jaya Prakash Nagar', 'Yelachenahalli', 'Konanakunte Cross', 'Doddakallasandra', 'Vajarahalli', 'Thalaghattapura', 'Silk Institute']
+
 
 def calculate_stops(boarding_station, destination_station):
     def find_index(station, station_list):
@@ -104,34 +104,10 @@ def calculate_stops(boarding_station, destination_station):
         stops = (abs(find_index(boarding_station, negative_y) - find_index('Majestic', negative_y)) +
                  abs(find_index(destination_station, negative_x) - find_index('Majestic', negative_x)))
     
+
+    return stops
     
-    
-
-    stops = calculate_stops(boarding_station, destination_station)
-
-    if type(stops) == int:
-        print(f"The number of stops between {boarding_station} and {destination_station} is {stops}.")
-    else:
-        print(stops)
-
-
-
-    stops = calculate_stops(boarding_station, destination_station)
-
-    city_center_stop = "Majestic" in destination_station  
-
-    ticket_price = calculate_ticket_price(stops, city_center_stop)
-
-    if type(ticket_price) == int:
-        print(f"The ticket price from {boarding_station} to {destination_station} is Rs {ticket_price}.")
-    else:
-        print(ticket_price)
-
-    return stops,ticket_price
-
-# Price
-
-def calculate_ticket_price(stops, city_center_stop=False,):
+def calculate_ticket_price(stops, city_center_stop=False):
     if stops == 0:
         return 0  
     elif stops == 1:
@@ -146,7 +122,4 @@ def calculate_ticket_price(stops, city_center_stop=False,):
     if city_center_stop:
         price += 1
 
-
-
-
-    
+    return price

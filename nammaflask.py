@@ -22,17 +22,21 @@ green_line_stations = [
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global calculate_stops
-    if request.method == 'POST':
-        boarding_station = request.form['boarding_station']
-        destination_station = request.form['destination_station']
-
-        stops, ticket_price = calculate_stops(
-            boarding_station, destination_station)
-
-        return render_template('result.html', stops=stops, ticket_price=ticket_price)
-
     return render_template('index.html', purple_line_stations=purple_line_stations, green_line_stations=green_line_stations)
+
+
+
+@app.route('/r', methods=['GET', 'POST'])
+def r():
+    boarding_station = request.form['boarding_station']
+    destination_station = request.form['destination_station']
+    print(boarding_station, destination_station)
+    stops = calculate_stops(boarding_station, destination_station)
+    city_center_stop = "Majestic" in destination_station  
+    ticket_price = calculate_ticket_price(stops, city_center_stop)
+    print(stops, ticket_price)
+    return render_template('r.html', stops=stops, ticket_price=ticket_price)
+
 
 
 if __name__ == '__main__':

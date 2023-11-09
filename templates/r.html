@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Details</title>
+    <style>
+        body {
+            background-image: url("../static/footer-top-img.jpg");
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .glassmorphism-box {
+            background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        a {
+            display: block;
+            background-color: #007aff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="glassmorphism-box">
+        <h1>Travel Details</h1>
+        <h1>Number of Stops: {{ stops }}</h1>
+        <h1>Ticket Price: Rs {{ ticket_price }}</h1>
+        <a href="/">Calculate Another Journey</a>
+    </div>
+</body>
+</html>
